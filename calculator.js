@@ -1,7 +1,7 @@
 // Function to append a character to the display
 function appendToDisplay(value) {
     const display = document.getElementById('display');
-    
+
     // Check if the display is currently showing '0' and replace it
     if (display.value === '0' && value !== '.') {
         display.value = value;
@@ -19,23 +19,23 @@ function clearDisplay() {
 // Function to calculate the result
 function calculateResult() {
     const display = document.getElementById('display');
-    
+
     try {
         // Evaluate the expression in the display
         const result = eval(display.value);
-        
+
         // Display the result, if it's finite
         display.value = isFinite(result) ? result : 'Error';
     } catch (error) {
         // If there was an error in evaluation (e.g. invalid expression), show 'Error'
         display.value = 'Error';
-    }
+    } s
 }
 
 // Function to delete the last character
 function clearLastCharacter() {
     const display = document.getElementById('display');
-    
+
     // If there's only one character, reset to '0'
     if (display.value.length === 1) {
         display.value = '0';
@@ -46,26 +46,26 @@ function clearLastCharacter() {
 }
 
 
-function squareNumber(){
+function squareNumber() {
     const display = document.getElementById('display');
-    try{
+    try {
         const result = eval(display.value);
-        display.value = Math.pow(result,2);
+        display.value = Math.pow(result, 2);
 
     }
-    catch{
+    catch {
         display.value = 'Error';
 
     }
 }
 
-function cubeNumber(){
+function cubeNumber() {
     const display = document.getElementById('display');
-    try{
+    try {
         const result = eval(display.value);
-        display.value = Math.pow(result,3);
+        display.value = Math.pow(result, 3);
     }
-    catch{
+    catch {
         display.value = 'Error';
     }
 }
@@ -84,44 +84,44 @@ function powerNumber() {
 }
 
 
-function squareRoot(){
+function squareRoot() {
     const display = document.getElementById('display');
-    try{
+    try {
         const result = eval(display.value);
         display.value = Math.sqrt(result);
     }
-    catch{
+    catch {
         display.value = 'Error';
     }
 }
 
 
-function reciprocal(){
+function reciprocal() {
     const display = document.getElementById('display');
-    try{
+    try {
         const result = eval(display.value);
-        display.value = 1/result;
+        display.value = 1 / result;
     }
-    catch{
+    catch {
         display.value = 'Error';
     }
 }
 
 
-function factorial(n){
+function factorial(n) {
     const display = document.getElementById('display');
-    try{
+    try {
         let result = eval(display.value);
         result = 1;
         n = eval(display.value);
-        if (n<0) return "Error";
+        if (n < 0) return "Error";
         if (n == 0 || n == 1) return 1;
         for (let i = 2; i <= n; i++) {
             result *= i;
         }
         display.value = result;
     }
-    catch{
+    catch {
         display.value = 'Error';
     }
 }
@@ -144,5 +144,12 @@ function logarithmic() {
     }
 }
 
+
+document.addEventListener("keydown", event => {
+    // Check if the pressed key is Enter
+    if (event.key === "Enter") {
+        calculateResult();  // Call the function to calculate and display the result
+    }
+});
 
 
